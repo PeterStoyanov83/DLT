@@ -27,6 +27,8 @@ To use this project:
 
 
 ## Screenshots
+![Screenshot 2024-04-12 112946](https://github.com/PeterStoyanov83/DLT/assets/108938447/ad0fbc83-f315-4dab-92f2-eb98d9451f5b)
+
 
 
 ## Contributing
