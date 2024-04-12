@@ -28,14 +28,7 @@ To use this project:
 
 ## Screenshots
 
-Include any relevant screenshots here to visually demonstrate the functionality of the blockchain display.
 
 ## Contributing
 
-Feel free to contribute to this project by submitting pull requests or reporting issues.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-![](/Users/peterstoyanov/Desktop/Screenshot 2024-04-09 at 10.49.52.png)
