@@ -24,7 +24,7 @@ To use this project:
 3. Run the Django development server using `python manage.py runserver`.
 4. Access the `display_chain` and `validate_chain` URLs to interact with the blockchain.
 
-![Blockchain Display](/path/to/screenshot.png)
+
 
 ## Screenshots
 

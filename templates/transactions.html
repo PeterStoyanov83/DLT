@@ -1,0 +1,9 @@
+<!-- transactions.html -->
+<h1>Transaction History</h1>
+<ul>
+    {% for token in transaction_history %}
+        <li>
+            Sender: {{ token.sender }}, Receiver: {{ token.receiver }}, Value: {{ token.value }}
+        </li>
+    {% endfor %}
+</ul>

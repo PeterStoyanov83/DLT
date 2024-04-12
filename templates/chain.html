@@ -18,6 +18,14 @@
             <strong>Data:</strong> {{ block.data }}<br>
             <strong>Hash:</strong> {{ block.hash }}<br>
             <strong>Previous Hash:</strong> {{ block.previous_hash }}<br>
+            <strong>Tokens:</strong><br>
+            <ul>
+                {% for token in block.tokens %}
+                    <li>
+                        <strong>Owner:</strong> {{ token.owner }}, <strong>Value:</strong> {{ token.value }}
+                    </li>
+                {% endfor %}
+            </ul>
         </li>
         <br>
     {% endfor %}

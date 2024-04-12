@@ -3,13 +3,37 @@ import hashlib
 import time
 
 
+class Token:
+    def __init__(self, sender, receiver, value):
+        self.sender = sender
+        self.receiver = receiver
+        self.value = value
+
+    def __str__(self):
+        return f"Sender: {self.sender}, Receiver: {self.receiver}, Value: {self.value}"
+
+
 class Block:
+    def get_block_data(self):
+        return {
+            'index': self.index,
+            'timestamp': self.timestamp,
+            'data': self.data,
+            'hash': self.hash,
+            'previous_hash': self.previous_hash,
+            'tokens': self.tokens
+        }
+
     def __init__(self, index, data, previous_hash):
         self.index = index
         self.timestamp = time.time()
         self.data = data
         self.previous_hash = previous_hash
+        self.tokens = []
         self.hash = self.compute_hash()
+
+    def add_token(self, token):
+        self.tokens.append(token)
 
     def compute_hash(self):
         sha = hashlib.sha256()
@@ -28,7 +52,7 @@ class Blockchain:
         self.chain.append(genesis_block)
 
     def get_last_block(self):
-        return self.chain[-1]
+        return self.chain[-1] if self.chain else None
 
     def add_block(self, data):
         last_block = self.get_last_block()
@@ -41,14 +65,16 @@ class Blockchain:
             previous_block = self.chain[i - 1]
 
             if current_block.hash != current_block.compute_hash():
-                print("Current block's hash is invalid.")
                 return False
 
             if current_block.previous_hash != previous_block.hash:
-                print("Previous block's hash doesn't match with the saved previous hash.")
                 return False
 
         return True
+
+    def add_tokens_to_block(self, block, tokens):
+        for token in tokens:
+            block.add_token(token)
 
     def display_chain(self):
         for block in self.chain:
@@ -56,4 +82,8 @@ class Blockchain:
             print(f"Timestamp: {block.timestamp}")
             print(f"Data: {block.data}")
             print(f"Hash: {block.hash}")
-            print(f"Previous Hash: {block.previous_hash}\n")
+            print(f"Previous Hash: {block.previous_hash}")
+            print("Tokens:")
+            for token in block.tokens:
+                print(f"Sender: {token.sender}, Receiver: {token.receiver}, Value: {token.value}")
+            print("\n")
